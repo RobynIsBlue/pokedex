@@ -1,0 +1,2 @@
+figure out a way to get the main functions to ask if 
+the cache already has information

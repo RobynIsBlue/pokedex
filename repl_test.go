@@ -45,7 +45,7 @@ func TestCleanInput(t *testing.T) {
 
 func TestAPIGet(t *testing.T) {
 	cases := []struct {
-		input    int
+		input    any
 		expected locationData
 	}{
 		{
@@ -55,10 +55,17 @@ func TestAPIGet(t *testing.T) {
 				Name: "eterna-city-area",
 			},
 		},
+		{
+			input: "eterna-city-area",
+			expected: locationData{
+				ID:   2,
+				Name: "eterna-city-area",
+			},
+		},
 	}
 	for _, c := range cases {
 		t.Run(fmt.Sprintf("%d", c.input), func(t *testing.T) {
-			actual, err := callApiWithID(c.input)
+			actual, err := callLocationApiWithID(c.input)
 			require.NoError(t, err)
 			require.Equal(t, c.expected, actual)
 		})
