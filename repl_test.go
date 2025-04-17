@@ -65,7 +65,7 @@ func TestAPIGet(t *testing.T) {
 	}
 	for _, c := range cases {
 		t.Run(fmt.Sprintf("%d", c.input), func(t *testing.T) {
-			actual, err := callLocationApiWithID(c.input)
+			actual, err := callLocationApi(c.input)
 			require.NoError(t, err)
 			require.Equal(t, c.expected, actual)
 		})
